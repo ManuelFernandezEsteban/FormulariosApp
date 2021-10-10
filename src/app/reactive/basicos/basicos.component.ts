@@ -29,7 +29,23 @@ export class BasicosComponent implements OnInit {
     && this.miFormulario.controls[campo].touched;
   }
 
+  guardar(){
+
+    if(this.miFormulario.invalid){
+      this.miFormulario.markAllAsTouched();
+      return;
+    }
+
+    console.log(this.miFormulario.value);
+    this.miFormulario.reset();
+  }
+
   ngOnInit(): void {
+
+    this.miFormulario.reset({
+      nombre:'RTX408',
+      precio:200      
+    })
   }
 
 }
