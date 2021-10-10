@@ -1,1 +1,86 @@
-<p>switches works!</p>
+<h2>Reactive: <small>Switches</small> </h2>
+<hr>
+<form>
+
+    <!--Radios-->
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Género</label>
+        <div class="col-sm-9">
+            <div class="form-check">
+                <input 
+                    class="form-check-input" 
+                    type="radio" 
+                    name="radioGenero" 
+                    value="M"                     
+                    id="radioMasculino">
+                <label class="form-check-label" for="radioMasculino" >
+                  Masculino
+                </label>
+              </div>
+              <div class="form-check">
+                <input 
+                    class="form-check-input" 
+                    type="radio" 
+                    name="radioGenero" 
+                    value="F"
+                    id="radioFemenino">
+                <label class="form-check-label" for="radioFemenino">
+                  Femenino
+                </label>
+              </div>
+        </div>
+    </div>
+<!--Switch-->
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Notificaciones</label>
+        <div class="col-sm-9">
+            <div class="form-check form-switch mt-2">
+                <input 
+                    class="form-check-input" 
+                    type="checkbox" 
+                    role="switch" 
+                    id="swNotificaciones">
+                <label class="form-check-label" for="swNotificaciones">Quiero recibir notificaciones</label>
+            </div>
+        </div>
+    </div>
+    <!--Check-->
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label"></label>
+        <div class="col-sm-9">
+            <div class="form-check">
+                <input
+                    class="form-check-input" 
+                    type="checkbox" 
+                    id="chTerminos">
+                <label class="form-check-label" for="chTerminos">
+                    Términos y condiciones de uso
+                </label>
+              </div>
+        </div>
+    </div>
+<!--submit-->
+<div class="row">
+    <div class="col">
+        <button 
+            type="submit" 
+            class="btn btn-primary float-end">
+            Enviar
+        </button>
+    </div>
+</div>
+
+
+</form>
+<!--
+
+<h5>Valor del formulario</h5>
+<pre>{{miFormulario.value|json}}</pre>
+
+<h5>Persona</h5>
+<pre>{{persona|json}}</pre>
+
+<h5>Valid</h5>
+<pre>{{miFormulario.valid|json}}</pre>
+<h5>Condiciones:</h5>
+-->
