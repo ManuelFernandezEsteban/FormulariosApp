@@ -1,1 +1,66 @@
-<p>dinamicos works!</p>
+<h2>Templates: <small>Dinámicos</small></h2>
+<hr>
+
+<form (ngSubmit)="guardar()" autocomplete="off" #miFormulario="ngForm">
+    <!--nombre-->
+    <div class="row mb-3">
+        <label for="nombre" class="col-sm-3 col-form-label">Nombre</label>
+        <div class="col-sm-9">
+            <input class="form-control" placeholder="Nombre de la persona" 
+            type="text" name="nombre" [ngModel]="persona.nombre" required>
+            <span *ngIf="miFormulario.controls.nombre?.errors
+                     && miFormulario.controls.nombre?.touched" class="form-text text-danger">
+                Este campo es obligatorio
+            </span>
+        </div>
+    </div>
+    <!--agregar juego-->
+    <div class="row mb-3">
+        <label for="nombre" class="col-sm-3 col-form-label">Agregar</label>
+        <div class="col-sm-9">
+            <div class="input-group">
+                <input
+                    (keyup.enter)="agregarJuego()" 
+                    class="form-control" 
+                    placeholder="Agrgar favorito" 
+                    name="juegoNuevo" 
+                    [(ngModel)]="nuevoJuego">
+                <button 
+                    class="btn btn-outline-primary" 
+                    (click)="agregarJuego()" 
+                    type="button">
+                    Agregar
+                </button>
+            </div>            
+        </div>
+    </div>
+    <!--lista de juegos-->
+    <div class="row mb-3">
+        <label for="nombre" class="col-sm-3 col-form-label">Favoritos</label>
+        <div class="col-sm-9">
+            <div class="input-group mb-1" *ngFor="let juego of persona.favoritos; let i = index">
+                <input 
+                class="form-control" [(ngModel)]="juego.nombre"
+                required
+                name="favorito_{{i}}">
+                <button (click)="eliminar(i)"
+                    class="btn btn-outline-danger"
+                    type="button">
+                    Borrar
+                </button>
+            </div>
+                        
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-sm-12">
+            <button type="button" class="btn btn-primary float-end" (click)="guardar()"
+                [disabled]="miFormulario.invalid">
+                Guardar
+            </button>
+        </div>
+    </div>
+</form>
+
+<span>Persona</span>
+<pre>{{persona|json}}</pre>
